@@ -37,6 +37,79 @@ function changeDotSize(isBig){
     return isBig ? big : small;
 }
 
+function showIntro() {
+    $( "#frame ").animate({
+        "bottom": "55px"
+    }, "slow"
+);
+    $( ".intro" ).fadeIn("fast").animate({
+        "opacity": "1"
+    });
+
+    $( ".leftText ").animate({
+        "left": "-10%",
+        "opacity": "0"
+    }, "slow");
+    $( "#home" ).fadeOut();
+}
+
+function showFunctionality() {
+    // alert("implement function showFunctionality");
+    $( ".intro" ).animate({
+        "opacity": "0"
+    }, "slow", function() {
+        $( "#frame ").animate({
+            "bottom": "57.5%"
+        });
+        $( ".leftText ").animate({
+            "opacity": "1",
+            "left": "0"
+        }, "slow");
+    }).fadeOut("fast");
+
+    $( "#home" ).fadeIn(2000);
+}
+
+function showUnpaid() {
+    alert("implement function showUnpaid");
+
+}
+
+function showToPayment() {
+    alert("implement function showToPayment");
+
+}
+
+function showHistory() {
+    alert("implement function showHistory");
+
+}
+
+function showPrices() {
+    alert("implement function showPrices");
+
+}
+
+function showBenefits() {
+    alert("implement function showBenefits");
+
+}
+
+function ShowFooter() {
+    alert("implement function ShowFooter");
+
+}
+
 function loadData(number){
-    alert(number);
+    switch(number){
+        case 0: showIntro(); break;
+        case 1: showFunctionality(); break;
+        case 2: showUnpaid(); break;
+        case 3: showToPayment(); break;
+        case 4: showHistory(); break;
+        case 5: showPrices(); break;
+        case 6: showBenefits(); break;
+        case 7: ShowFooter(); break;
+    }
+    // alert(number);
 }
