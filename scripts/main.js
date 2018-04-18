@@ -5,16 +5,17 @@ $( document ).ready( function() {
     // Scrolling bar
     let lastScroll = 0;
     $( window ).on("wheel", function (event) {
-        // let way = $( this ).scrollTop();
         if (event.originalEvent.deltaY < 0 ) {
-            $(".c"+lastScroll).css(changeDotSize(false));
-            $(".c"+(lastScroll-1)).css(changeDotSize(true));
-            if( lastScroll > 1 ) lastScroll--; 
+            if( lastScroll > 0 ) lastScroll--; 
+            $(".c"+lastScroll).css(changeDotSize(true));
+            $(".c"+(lastScroll+1)).css(changeDotSize(false));
+           
         } else {
+            if ( lastScroll < 7 ) lastScroll++;
             $(".c"+lastScroll).css(changeDotSize(true));
             $(".c"+(lastScroll-1)).css(changeDotSize(false));
-            if ( lastScroll < 7 ) lastScroll++;
         }
+        loadData(lastScroll);
     });
 
     $( window ).click( function () {
@@ -34,4 +35,8 @@ function changeDotSize(isBig){
         "margin-left": "-3px"
     };
     return isBig ? big : small;
+}
+
+function loadData(number){
+    alert(number);
 }
