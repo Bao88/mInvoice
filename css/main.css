@@ -4,6 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 /* Flags/language */
@@ -20,6 +21,10 @@ body {
     top: 50%;
     left: 0;
     height: 60%;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* Intro - first page */
@@ -48,10 +53,34 @@ body {
     transform: rotate(45deg);
 }
 
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    height: 200px;
+    width: 35px;
+    margin-top: -100px;
+}
+
+.position-dots {
+    position: relative;
+    height: 25px;
+    width: 35px;
+    /* text-align: center; */
+}
+
+
 .circle {
+    position: absolute;
     border: solid grey;
     border-radius: 50%;
-    
+    top: 50%;
+    left: 50%;
+    margin-top: -1px;
+    margin-left: -3px; 
+    /* margin: 10px; */
 }
 
 #frame {
