@@ -51,6 +51,7 @@ body {
 .circle {
     border: solid grey;
     border-radius: 50%;
+    
 }
 
 #frame {
