@@ -41,7 +41,7 @@ function showIntro() {
     $( "#frame ").animate({
         "bottom": "55px"
     }, "slow"
-);
+    );
     $( ".intro" ).fadeIn("fast").animate({
         "opacity": "1"
     });
@@ -55,33 +55,45 @@ function showIntro() {
 
 function showFunctionality() {
     // alert("implement function showFunctionality");
+    $( ".item1" ).animate({
+        "opacity": "0"
+    });
     $( ".intro" ).animate({
         "opacity": "0"
-    }, "slow", function() {
-        $( "#frame ").animate({
+    }, "slow");
+    $( "#frame ").animate({
             "bottom": "57.5%"
-        });
-        $( ".leftText ").animate({
-            "opacity": "1",
-            "left": "0"
-        }, "slow");
-    }).fadeOut("fast");
-
-    $( "#home" ).fadeIn(2000);
+    }, 1100);
+    $( ".leftText ").animate({
+        "opacity": "1",
+        "left": "0"
+    }, 1100);
+    $( "#home" ).fadeIn();
 }
 
 function showUnpaid() {
-    alert("implement function showUnpaid");
-
+    // alert("implement function showUnpaid");
+    $( ".item1" ).animate({
+            "opacity": "1"
+    });
+    $( ".item2" ).animate({
+        "opacity": "0"
+    });
 }
 
 function showToPayment() {
-    alert("implement function showToPayment");
-
+    $( ".item2" ).animate({
+        "opacity": "1"
+    });
+    $( ".item3" ).animate({
+        "opacity": "0"
+    });
 }
 
 function showHistory() {
-    alert("implement function showHistory");
+    $( ".item3" ).animate({
+        "opacity": "1"
+    });
 
 }
 

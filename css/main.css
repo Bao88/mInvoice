@@ -92,6 +92,17 @@ a {
     bottom: 55px;
 }
 
+.inner-frame-borders {
+    position: relative;
+    border: red solid;
+    width: 175px;
+    height: 60px;
+    left: 55px;
+    top: 126px;
+    margin-bottom: 8px;
+    opacity: 0;
+}
+
 .mobile-frame {
     position: absolute;
     left: 0;
@@ -119,4 +130,17 @@ a {
     /* border: solid; */
     margin-left: 10vw;
     
+}
+
+/* Unpaid */
+.unpaid {
+    /* display: none; */
+    opacity: 1;
+    position: absolute;
+    top: 25%;
+    right: 0;
+    width: 25vw;
+    /* min-height: 30vh; */
+    /* border: solid; */
+    margin-right: 10vw;
 }
