@@ -1,26 +1,27 @@
 
 //  style="padding: 5px; margin-top: -6px; margin-left: -8px;"
+let lastScroll = 0;
+function scrolling(event){
+    if (event.originalEvent.deltaY < 0 ) {
+        if( lastScroll > 0 ) lastScroll--; 
+        $(".c"+lastScroll).css(changeDotSize(true));
+        $(".c"+(lastScroll+1)).css(changeDotSize(false));
+       
+    } else {
+        if ( lastScroll < 7 ) lastScroll++;
+        $(".c"+lastScroll).css(changeDotSize(true));
+        $(".c"+(lastScroll-1)).css(changeDotSize(false));
+    }
+    loadData(lastScroll);
+    $( window ).off("wheel");
+    setTimeout(function(){
+        $( window ).on("wheel", scrolling);
+    }, 800);
+}
 
 $( document ).ready( function() {
     // Scrolling bar
-    let lastScroll = 0;
-    $( window ).on("wheel", function (event) {
-        if (event.originalEvent.deltaY < 0 ) {
-            if( lastScroll > 0 ) lastScroll--; 
-            $(".c"+lastScroll).css(changeDotSize(true));
-            $(".c"+(lastScroll+1)).css(changeDotSize(false));
-           
-        } else {
-            if ( lastScroll < 7 ) lastScroll++;
-            $(".c"+lastScroll).css(changeDotSize(true));
-            $(".c"+(lastScroll-1)).css(changeDotSize(false));
-        }
-        loadData(lastScroll);
-    });
-
-    $( window ).click( function () {
-        
-    });
+    $( window ).on("wheel", scrolling);
 });
 
 function changeDotSize(isBig){
@@ -54,7 +55,6 @@ function showIntro() {
 }
 
 function showFunctionality() {
-    // alert("implement function showFunctionality");
     $( ".item1" ).animate({
         "opacity": "0"
     });
@@ -72,7 +72,7 @@ function showFunctionality() {
 }
 
 function showUnpaid() {
-    // alert("implement function showUnpaid");
+    // console.log($( "#frame > div" )[0]);
     $( ".item1" ).animate({
             "opacity": "1"
     });
@@ -82,6 +82,7 @@ function showUnpaid() {
 }
 
 function showToPayment() {
+    $( "#frame > div" )[0].style.opacity = "0";
     $( ".item2" ).animate({
         "opacity": "1"
     });
@@ -91,10 +92,10 @@ function showToPayment() {
 }
 
 function showHistory() {
+    $( "#frame > div" )[1].style.opacity = "0";
     $( ".item3" ).animate({
         "opacity": "1"
     });
-
 }
 
 function showPrices() {
