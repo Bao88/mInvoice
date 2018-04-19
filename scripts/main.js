@@ -55,10 +55,10 @@ function showIntro() {
 }
 
 function showFunctionality() {
-    $( ".item1" ).animate({
-        "opacity": "0"
-    });
-    $( ".intro" ).animate({
+    // $( ".item1" ).animate({
+    //     "opacity": "0"
+    // });
+    $( ".intro, .item1" ).animate({
         "opacity": "0"
     }, "slow");
     $( "#frame ").animate({
@@ -82,25 +82,60 @@ function showUnpaid() {
 }
 
 function showToPayment() {
-    $( "#frame > div" )[0].style.opacity = "0";
+    // $( "#frame > div" )[0].style.opacity = "0";
     $( ".item2" ).animate({
         "opacity": "1"
     });
-    $( ".item3" ).animate({
+    $( ".item3, #frame > div:nth-of-type(1)" ).animate({
         "opacity": "0"
     });
 }
 
 function showHistory() {
-    $( "#frame > div" )[1].style.opacity = "0";
-    $( ".item3" ).animate({
-        "opacity": "1"
+    $("#prices").animate({
+        "left": "-15vw",
+        "opacity": "0"
+    }, 500, function(){
+        $( "#frame > div" )[1].style.opacity = "0";
+        $( ".item3" ).animate({
+            "opacity": "1"
+        }, 500);
+        $( " #frame ").animate({
+            "left": "50%"
+        },500);
+     
+        $( " .leftText ").animate({
+            "left": "0",
+            "opacity": "1"
+        },500);
+    
+        $( " .unpaid ").animate({
+            "right": "0",
+            "opacity": "1"
+        },500);
     });
 }
 
 function showPrices() {
-    alert("implement function showPrices");
+    $( "#frame > div" )[2].style.opacity = "0";
+    $( " #frame ").animate({
+        "left": "80%"
+    },500, function(){
+        $("#prices").animate({
+            "left": "5vw",
+            "opacity": "1"
+        }, 500);
+    });
+    $( " .leftText ").animate({
+        "left": "30%",
+        "opacity": "0"
+    },500);
+    $( " .unpaid ").animate({
+        "right": "-30%",
+        "opacity": "0"
+    },500);
 
+    
 }
 
 function showBenefits() {

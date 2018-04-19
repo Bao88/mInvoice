@@ -88,7 +88,8 @@ a {
     position: absolute;
     height: 200px;
     width: 290px;
-    /* border: solid; */
+    left: 50%;
+    margin-left: -145px;
     bottom: 55px;
 }
 
@@ -143,4 +144,25 @@ a {
     /* min-height: 30vh; */
     /* border: solid; */
     margin-right: 10vw;
+}
+
+/* Prices */
+#prices {
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+
+    position: absolute;
+    left: -15vw;
+    top: 50vh;
+    width: 65vw;
+    height: 50vh;
+    /* border: solid; */
+    margin-top: -25vh;
+    opacity: 0;
+}
+
+#prices > section {
+    min-width: 200px;
+    padding: 20px;
 }
