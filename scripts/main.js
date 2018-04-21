@@ -117,6 +117,9 @@ function showHistory() {
 }
 
 function showPrices() {
+    // $( "body ").fadeOut();
+    document.body.style.animation = "initial";
+    // $( "body ").fadeIn();
     $( "#frame > div" )[2].style.opacity = "0";
     $( " #frame ").animate({
         "left": "80%"
@@ -134,13 +137,29 @@ function showPrices() {
         "right": "-30%",
         "opacity": "0"
     },500);
-
-    
 }
 
 function showBenefits() {
-    alert("implement function showBenefits");
+    // alert("implement function showBenefits");
+    document.body.style.animation = "backgroundColorAnimation 1s forwards";
+   
+    // $("body").addClass("addAnimation");
+    // $( "body").fadeToggle().css("background-color", "rgba(229, 50, 50, 1)");
+    // $( " #frame, #prices" ).css("opacity", "0");
+    // $( " #showBenefits ").css("opacity","1");
+    // $( "body").fadeIn();
 
+        //     });
+    // $( " #frame, #prices").animate({
+    //     "opacity": "0"
+    // }, function() {
+    //     $( "body").hide
+    //     document.body.style.backgroundColor = "rgba(229, 50, 50, 1)";
+    //     $( " #showBenefits, body ").animate({
+    //         "opacity": "1"
+    //     });
+    // });
+    
 }
 
 function ShowFooter() {

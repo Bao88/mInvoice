@@ -1,3 +1,12 @@
+@keyframes backgroundColorAnimation {
+    from {background-color: white;}
+    to {background-color: rgba(229, 50, 50, 1);}
+}
+
+.addAnimation {
+    animation: backgroundColorAnimation 1s forwards;
+}
+
 body {
     margin: 0;
 
@@ -5,6 +14,7 @@ body {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    /* background-color: white;  */
 }
 
 
@@ -47,7 +57,7 @@ a {
 
 /* Icon */
 .arrow-down {
-    border: solid red;
+    border: solid rgba(229, 50, 50, 1);;
     border-width: 0 5px 5px 0;
     padding: 12px;
     margin-top: 10%;
@@ -166,3 +176,42 @@ a {
     min-width: 200px;
     padding: 20px;
 }
+
+/* Show benefits */
+
+#showBenefits {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /* z-index: 1; */
+    color: white;
+    /* background-color: rgba(229, 50, 50, 1); */
+    /* width: 100vw; */
+    height: 100vh;
+    opacity: 0;
+}
+
+#showBenefits-inner-div {
+    display: flex;
+    width: 80vw;
+    /* flex-direction: row; */
+    /* align-items: flex-start; */
+    /* align-content: space-between; */
+    justify-content: space-around;
+    /* border: solid; */
+}
+
+#showBenefits-inner-div > section {
+    width: 35vw;
+    /* border: solid; */
+}
+
+#showBenefits-inner-div button {
+    padding: 10px 40px;
+    border-radius: 10px;
+    margin: 30px 0 0 25px;
+    /* margin-left: 25px; */
+}
+
