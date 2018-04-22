@@ -75,7 +75,6 @@ function showFunctionality(scrollingDown) {
 }
 
 function showUnpaid(scrollingDown) {
-    // console.log($( "#frame > div" )[0]);
     $( ".item1" ).animate({
             "opacity": "1"
     });
@@ -85,7 +84,6 @@ function showUnpaid(scrollingDown) {
 }
 
 function showToPayment(scrollingDown) {
-    // $( "#frame > div" )[0].style.opacity = "0";
     $( ".item2" ).animate({
         "opacity": "1"
     });
@@ -120,8 +118,6 @@ function showHistory(scrollingDown) {
 }
 
 function showPrices(scrollingDown) {
-    // $( "body ").fadeOut();
-    // $( "body ").fadeIn();
     if(scrollingDown){
         $( "#frame > div" )[2].style.opacity = "0";
         $( " #frame ").animate({
@@ -178,7 +174,6 @@ function showBenefits(scrollingDown) {
 }
 
 function ShowFooter(scrollingDown) {
-    // alert("implement function ShowFooter");
     document.getElementById("footer").style.display = "flex";
 
 }
@@ -194,5 +189,4 @@ function loadData(number, scrollingDown){
         case 6: showBenefits(scrollingDown); break;
         case 7: ShowFooter(scrollingDown); break;
     }
-    // alert(number);
 }

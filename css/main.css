@@ -1,22 +1,12 @@
-@keyframes backgroundColorAnimation {
-    from {background-color: white;}
-    to {background-color: }
-}
-
 body {
     margin: 0;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-
     background-color: white; 
     transition: background-color 1s ease-in;
 }
-/* body:hover {
-    background-color: red;
-} */
 
 /* Flags/language */
 #language {
@@ -42,12 +32,10 @@ a {
 #intro {
     display: flex;
     flex-direction: column;
-    /* border: solid; */
     height: 65%;
     width: 50%;
     justify-content: center;
     align-items: center;
-    /* border: solid; */
     text-align: center;
 }
 
@@ -79,7 +67,6 @@ a {
     position: relative;
     height: 25px;
     width: 35px;
-    /* text-align: center; */
 }
 
 
@@ -91,7 +78,6 @@ a {
     left: 50%;
     margin-top: -1px;
     margin-left: -3px; 
-    /* margin: 10px; */
 }
 
 #frame {
@@ -119,7 +105,6 @@ a {
     left: 0;
     top: 0;
     height: 500px;
-    /* border: solid; */
 }
 
 .mobile-inner-frame {
@@ -131,43 +116,33 @@ a {
 
 /* Functionality page */
 .leftText {
-    /* display: none; */
     opacity: 0;
     position: absolute;
     top: 25%;
     left: -10%;
     width: 25vw;
-    /* min-height: 30vh; */
-    /* border: solid; */
     margin-left: 10vw;
     
 }
 
 /* Unpaid */
 .unpaid {
-    /* display: none; */
     opacity: 1;
     position: absolute;
     top: 25%;
     right: 0;
     width: 25vw;
-    /* min-height: 30vh; */
-    /* border: solid; */
     margin-right: 10vw;
 }
 
 /* Prices */
 #prices {
     display: flex;
-    /* justify-content: space-between; */
-    /* align-items: center; */
-
     position: absolute;
     left: -15vw;
     top: 50vh;
     width: 65vw;
     height: 50vh;
-    /* border: solid; */
     margin-top: -25vh;
     opacity: 0;
 }
@@ -185,10 +160,7 @@ a {
     justify-content: center;
     align-items: center;
     position: absolute;
-    /* z-index: 1; */
     color: white;
-    /* background-color: rgba(229, 50, 50, 1); */
-    /* width: 100vw; */
     height: 100vh;
     opacity: 0;
 }
@@ -196,23 +168,17 @@ a {
 #showBenefits-inner-div {
     display: flex;
     width: 80vw;
-    /* flex-direction: row; */
-    /* align-items: flex-start; */
-    /* align-content: space-between; */
     justify-content: space-around;
-    /* border: solid; */
 }
 
 #showBenefits-inner-div > section {
     width: 35vw;
-    /* border: solid; */
 }
 
 #showBenefits-inner-div button {
     padding: 10px 40px;
     border-radius: 10px;
     margin: 30px 0 0 25px;
-    /* margin-left: 25px; */
 }
 
 #footer {
@@ -228,5 +194,4 @@ a {
     justify-content: space-around;
     text-align: center;
     transition: display 1s ease-in;
-    
 }
