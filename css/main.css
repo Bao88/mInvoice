@@ -1,10 +1,6 @@
 @keyframes backgroundColorAnimation {
     from {background-color: white;}
-    to {background-color: rgba(229, 50, 50, 1);}
-}
-
-.addAnimation {
-    animation: backgroundColorAnimation 1s forwards;
+    to {background-color: }
 }
 
 body {
@@ -14,9 +10,13 @@ body {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    /* background-color: white;  */
-}
 
+    background-color: white; 
+    transition: background-color 1s ease-in;
+}
+/* body:hover {
+    background-color: red;
+} */
 
 /* Flags/language */
 #language {
@@ -215,3 +215,18 @@ a {
     /* margin-left: 25px; */
 }
 
+#footer {
+    position: absolute;
+    z-index: 1;
+    text-decoration: none;
+    background-color: grey;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    transition: display 1s ease-in;
+    
+}

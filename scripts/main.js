@@ -2,17 +2,20 @@
 //  style="padding: 5px; margin-top: -6px; margin-left: -8px;"
 let lastScroll = 0;
 function scrolling(event){
+    let scrollingDown = true;
     if (event.originalEvent.deltaY < 0 ) {
+        scrollingDown = false;
         if( lastScroll > 0 ) lastScroll--; 
         $(".c"+lastScroll).css(changeDotSize(true));
         $(".c"+(lastScroll+1)).css(changeDotSize(false));
        
     } else {
+        scrollingDown = true;
         if ( lastScroll < 7 ) lastScroll++;
         $(".c"+lastScroll).css(changeDotSize(true));
         $(".c"+(lastScroll-1)).css(changeDotSize(false));
     }
-    loadData(lastScroll);
+    loadData(lastScroll, scrollingDown);
     $( window ).off("wheel");
     setTimeout(function(){
         $( window ).on("wheel", scrolling);
@@ -38,40 +41,40 @@ function changeDotSize(isBig){
     return isBig ? big : small;
 }
 
-function showIntro() {
-    $( "#frame ").animate({
-        "bottom": "55px"
-    }, "slow"
-    );
-    $( ".intro" ).fadeIn("fast").animate({
-        "opacity": "1"
-    });
-
-    $( ".leftText ").animate({
-        "left": "-10%",
-        "opacity": "0"
-    }, "slow");
-    $( "#home" ).fadeOut();
+function showIntro(scrollingDown) {
+    if(scrollingDown){
+        $( "#home" ).fadeOut();
+    } else {
+        $( "#frame ").animate({
+            "bottom": "55px"
+        }, "slow");
+        $( ".intro" ).fadeIn("fast").animate({
+            "opacity": "1"
+        });
+        $( ".leftText ").animate({
+            "left": "-10%",
+            "opacity": "0"
+        }, "slow");
+    }   
 }
 
-function showFunctionality() {
-    // $( ".item1" ).animate({
-    //     "opacity": "0"
-    // });
-    $( ".intro, .item1" ).animate({
-        "opacity": "0"
-    }, "slow");
-    $( "#frame ").animate({
+function showFunctionality(scrollingDown) {
+    if(scrollingDown){
+        $( ".intro" ).fadeOut();
+        $( "#frame ").animate({
             "bottom": "57.5%"
-    }, 1100);
-    $( ".leftText ").animate({
-        "opacity": "1",
-        "left": "0"
-    }, 1100);
-    $( "#home" ).fadeIn();
+        }, 1100);
+        $( ".leftText ").animate({
+            "opacity": "1",
+            "left": "0"
+        }, 1100);
+    } else {
+        $( ".item1" ).fadeToggle();
+        $( "#home" ).fadeIn();
+    }
 }
 
-function showUnpaid() {
+function showUnpaid(scrollingDown) {
     // console.log($( "#frame > div" )[0]);
     $( ".item1" ).animate({
             "opacity": "1"
@@ -81,7 +84,7 @@ function showUnpaid() {
     });
 }
 
-function showToPayment() {
+function showToPayment(scrollingDown) {
     // $( "#frame > div" )[0].style.opacity = "0";
     $( ".item2" ).animate({
         "opacity": "1"
@@ -91,7 +94,7 @@ function showToPayment() {
     });
 }
 
-function showHistory() {
+function showHistory(scrollingDown) {
     $("#prices").animate({
         "left": "-15vw",
         "opacity": "0"
@@ -116,19 +119,36 @@ function showHistory() {
     });
 }
 
-function showPrices() {
+function showPrices(scrollingDown) {
     // $( "body ").fadeOut();
-    document.body.style.animation = "initial";
     // $( "body ").fadeIn();
-    $( "#frame > div" )[2].style.opacity = "0";
-    $( " #frame ").animate({
-        "left": "80%"
-    },500, function(){
-        $("#prices").animate({
-            "left": "5vw",
+    if(scrollingDown){
+        $( "#frame > div" )[2].style.opacity = "0";
+        $( " #frame ").animate({
+            "left": "80%",
             "opacity": "1"
-        }, 500);
-    });
+        },500, function(){
+            $("#prices").animate({
+                "left": "5vw",
+                "opacity": "1"
+            }, 500);
+        });
+    } else {
+        document.body.style.backgroundColor = "initial";
+        $( " #showBenefits ").animate({
+            "opacity": "0"
+        }, function(){
+            $( " #frame ").animate({
+                "left": "80%",
+                "opacity": "1"
+            },1000);
+            $("#prices").animate({
+                "top": "50vh",
+                "left": "5vw",
+                "opacity": "1"
+            }, 1000);
+        }); 
+    }
     $( " .leftText ").animate({
         "left": "30%",
         "opacity": "0"
@@ -137,46 +157,42 @@ function showPrices() {
         "right": "-30%",
         "opacity": "0"
     },500);
-}
-
-function showBenefits() {
-    // alert("implement function showBenefits");
-    document.body.style.animation = "backgroundColorAnimation 1s forwards";
    
-    // $("body").addClass("addAnimation");
-    // $( "body").fadeToggle().css("background-color", "rgba(229, 50, 50, 1)");
-    // $( " #frame, #prices" ).css("opacity", "0");
-    // $( " #showBenefits ").css("opacity","1");
-    // $( "body").fadeIn();
-
-        //     });
-    // $( " #frame, #prices").animate({
-    //     "opacity": "0"
-    // }, function() {
-    //     $( "body").hide
-    //     document.body.style.backgroundColor = "rgba(229, 50, 50, 1)";
-    //     $( " #showBenefits, body ").animate({
-    //         "opacity": "1"
-    //     });
-    // });
-    
 }
 
-function ShowFooter() {
-    alert("implement function ShowFooter");
+function showBenefits(scrollingDown) {
+    if(!scrollingDown) document.getElementById("footer").style.display = "none";
+    $( " #frame").animate({
+        "opacity": "0",
+        "left": "90vw"
+    }, function() {
+        document.body.style.backgroundColor = "rgba(229, 50, 50, 1)";
+        $( " #showBenefits ").animate({
+            "opacity": "1"
+        });
+    });
+    $("#prices").animate({
+        "top": "0vw",
+        "opacity": "0"
+    }, 500);
+}
+
+function ShowFooter(scrollingDown) {
+    // alert("implement function ShowFooter");
+    document.getElementById("footer").style.display = "flex";
 
 }
 
-function loadData(number){
+function loadData(number, scrollingDown){
     switch(number){
-        case 0: showIntro(); break;
-        case 1: showFunctionality(); break;
-        case 2: showUnpaid(); break;
-        case 3: showToPayment(); break;
-        case 4: showHistory(); break;
-        case 5: showPrices(); break;
-        case 6: showBenefits(); break;
-        case 7: ShowFooter(); break;
+        case 0: showIntro(scrollingDown); break;
+        case 1: showFunctionality(scrollingDown); break;
+        case 2: showUnpaid(scrollingDown); break;
+        case 3: showToPayment(scrollingDown); break;
+        case 4: showHistory(scrollingDown); break;
+        case 5: showPrices(scrollingDown); break;
+        case 6: showBenefits(scrollingDown); break;
+        case 7: ShowFooter(scrollingDown); break;
     }
     // alert(number);
 }
